@@ -10,43 +10,43 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
     <section id="content">
         <div id="calculator">
             <div id="display">
-
+                0
             </div>
             <div id="keyboard">
                 <div class = "column">
-                    <button>7</button>
-                    <button>4</button>
-                    <button>1</button>
-                    <button>0</button>
+                    <button onclick="addNumber('7');">7</button>
+                    <button onclick="addNumber('4');">4</button>
+                    <button onclick="addNumber('1');">1</button>
+                    <button onclick="addNumber('0');">0</button>
                 </div>
                 <div class = "column">
-                    <button>8</button>
-                    <button>5</button>
-                    <button>2</button>
-                    <button>.</button>
+                    <button onclick="addNumber('8');">8</button>
+                    <button onclick="addNumber('5');">5</button>
+                    <button onclick="addNumber('2');">2</button>
+                    <button onclick="addNumber('.');">.</button>
                 </div>
                 <div class = "column">
-                    <button>9</button>
-                    <button>6</button>
-                    <button>3</button>
-                    <button>0</button>
+                    <button onclick="addNumber('9');">9</button>
+                    <button onclick="addNumber('6');">6</button>
+                    <button onclick="addNumber('3');">3</button>
+                    <button onclick="addAction(5)"><span>&#xb1;</span></button>
                 </div>
                 <div class = "column">
-                    <button><span>&#43;</span></button>
-                    <button><span>&#8722;</span></button>
-                    <button><span>&#247;</span></button>
-                    <button><span>&#215;</span></button>
+                    <button onclick="addAction(1)"><span>&#43;</span></button>
+                    <button onclick="addAction(2)"><span>&#8722;</span></button>
+                    <button onclick="addAction(3)"><span>&#247;</span></button>
+                    <button onclick="addAction(4)"><span>&#215;</span></button>
                 </div>
                 <div class = "column">
-                    <button>Del</button>
-                    <button>Cl</button>
-                    <button class="enter"><span>&#61;</span></button>
+                    <button onclick="addAction(8)" >Del</button>
+                    <button onclick="addAction(7)">Cl</button>
+                    <button onclick="addAction(6)" class="enter"><span>&#61;</span></button>
                     
                 </div>
 
