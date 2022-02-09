@@ -83,10 +83,10 @@ function getResult(){
     let result;
     switch (lastAction) {
         case 1:
-            result = (memory + numberTwo).toString();
+            result = (memory + numberTwo);
             break;
         case 2:
-            result = (memory - numberTwo).toString();
+            result = (memory - numberTwo);
             break;
         case 3:
             if (numberTwo == 0 ) {
@@ -100,14 +100,15 @@ function getResult(){
             result = (memory / numberTwo);
             break;
         case 4:   
-            result = (memory * numberTwo).toString();
+            result = (memory * numberTwo);
+
             break;
     
         default:
             break;
     }
     if(!(numberTwo == 0 && lastAction == 3)){
-    
+        memory = result;
         let stringResult = result.toString();
         let indexDot = stringResult.indexOf("\.");
         if(stringResult.length >10  && (indexDot < 0 || indexDot>10) ){
@@ -122,4 +123,36 @@ function getResult(){
     }
     return result;
 }
+$( document ).ready(function() {
+    $(document).keypress(function (event) { 
+        if (event.keyCode >= 48 && event.keyCode <= 57) {
+            addNumber(String.fromCharCode(event.which));
+           
+        }
+        if(event.keyCode == 42){ 
+            addAction(4);
+        }
+        if(event.keyCode == 43){ 
+            addAction(1);
+        }
+        if(event.keyCode == 45){ 
+            addAction(2);
+        }
+        if(event.keyCode == 47){ 
+            addAction(3);
+        }
+        if(event.keyCode == 46){ 
+            addNumber(String.fromCharCode(event.which));
+        }
+        if(event.keyCode == 61){ 
+            addAction(6);
+        }
+        if(event.keyCode == 8){ 
+            addAction(7);
+        }
+        if(event.keyCode == 27){ 
+            addAction(8);
+        }
 
+     });
+});
