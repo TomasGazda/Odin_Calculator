@@ -19,8 +19,11 @@ function addNumber(letter){
     
 }
 function addAction(option) {
+    let result;
     if(numberofAction > 0 && option <5){
-        getResult();
+        result =  getResult();
+        display = result;
+        $('#display').text(result);
         if(numberofAction == 0){
             return;
         }
@@ -46,8 +49,9 @@ function addAction(option) {
              $('#display').text(display);
             break;
         case 6: // result
-            getResult();
-            
+            result = getResult();
+            display = result;
+            $('#display').text(result);
             afterOperation = false;
             numberofAction = 0;
             memory = 0;
@@ -86,7 +90,6 @@ function getResult(){
             break;
         case 3:
             if (numberTwo == 0 ) {
-                getResult();
                 afterOperation = false;
                 numberofAction = 0;
                 memory =0;
@@ -103,20 +106,20 @@ function getResult(){
         default:
             break;
     }
-    if(!(numberTwo != 0 && lastAction != 3)){
+    if(!(numberTwo == 0 && lastAction == 3)){
     
-    let indexDot = result.toString().search(".");
-        if(result.length >10  && (indexDot < 0 || indexDot>10) ){
-            result = "Result is two big";
+        let stringResult = result.toString();
+        let indexDot = stringResult.indexOf("\.");
+        if(stringResult.length >10  && (indexDot < 0 || indexDot>10) ){
+            result = "Result is too big";
             memory = 0;
             lastAction = 0;
             numberofAction = 0;
-        }else if (indexDot > 0  && indexDot < 10 && result.length >10 ){
-            result.slice(0,10);
+        }else if (indexDot > 0  && indexDot < 10 && stringResult.length >10 ){
+            result = stringResult.slice(0,10);
         }
         
     }
-    display = result;
-    $('#display').text(result);
+    return result;
 }
 
